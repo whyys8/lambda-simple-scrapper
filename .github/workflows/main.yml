@@ -11,8 +11,14 @@ jobs:
     name: deploy lambda from source
     runs-on: ubuntu-latest
     steps:
+      - name: Echo secrets for logging
+        run: |
+          echo "This action is deploying to.."
+          echo ${{ secrets.LAMBDA_FX }} 
+
       - name: checkout source code
         uses: actions/checkout@v1
+        
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
