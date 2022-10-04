@@ -1,0 +1,23 @@
+name: deploy to lambda
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+jobs:
+
+  deploy_source:
+    name: deploy lambda from source
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v1
+      - name: default deploy
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: AKIASBZPY6XD7RX5GM4J
+          aws_secret_access_key: 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
+          aws_region: ap-southeast-1
+          function_name: web-scrapper
+          source: index.js
