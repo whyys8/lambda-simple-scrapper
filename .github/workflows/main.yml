@@ -19,6 +19,9 @@ jobs:
       - name: checkout source code
         uses: actions/checkout@v1
         
+      - name: zip the files
+        run: zip deployment.zip *.*
+        
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -26,3 +29,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET }}
           aws_region: ap-southeast-1
           function_name: ${{ secrets.LAMBDA_FX }}
+          zip_file: deployment.zip
