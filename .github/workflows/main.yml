@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v1
         
       - name: zip the files
-        run: zip -r deployment.zip *.*
+        run: zip -r deployment.zip *
         
       - name: default deploy
         uses: appleboy/lambda-action@master
