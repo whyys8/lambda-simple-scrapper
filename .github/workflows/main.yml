@@ -16,8 +16,8 @@ jobs:
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
-          aws_access_key_id: x
-          aws_secret_access_key: x
+          aws_access_key_id: ${{ secrets.AWS_KEY }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET }}
           aws_region: ap-southeast-1
-          function_name: web-scrapper
+          function_name: ${{ secrets.LAMBDA_FX }}
           source: index.js
