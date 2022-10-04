@@ -6,7 +6,7 @@ const AWS = require("aws-sdk");
 const documentClient = new AWS.DynamoDB.DocumentClient();
 const sqs = new AWS.SQS({apiVersion: '2012-11-05'});
 
-const blogs = ['danielfooddiary.com/','eatbook.sg/','sethlui.com/'];
+const blogs = ['danielfooddiary.com/','eatbook.sg/','sethlui.com/','ordinarypatrons.com/'];
 
 function get_page(url) { 
     return new Promise((resolve) => {
