@@ -1,4 +1,4 @@
-name: deploy to lambda
+name: CI/CD
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
@@ -8,19 +8,14 @@ on:
 jobs:
 
   deploy_source:
-    name: deploy lambda from source
+    name: github actions deploy to Lambda
     runs-on: ubuntu-latest
     steps:
-      - name: Echo secrets for logging
-        run: |
-          echo "This action is deploying to.."
-          echo ${{ secrets.LAMBDA_FX }} 
-
       - name: checkout source code
         uses: actions/checkout@v1
         
       - name: zip the files
-        run: zip deployment.zip *.*
+        run: zip -r deployment.zip *.*
         
       - name: default deploy
         uses: appleboy/lambda-action@master
