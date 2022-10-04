@@ -26,4 +26,3 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET }}
           aws_region: ap-southeast-1
           function_name: ${{ secrets.LAMBDA_FX }}
-          source: index.js
